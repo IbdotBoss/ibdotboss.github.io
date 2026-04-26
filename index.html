@@ -6,7 +6,6 @@
   <title>Ibrahim Khalil Uthman</title>
   <meta name="description" content="Final-year Computer Science student — AI safety, systems, security. Building me-builder, nansta, faajaa-access-control.">
   
-  <!-- Fonts: Geist (Vercel) + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,166 +16,279 @@
       --text: #e5e5e5;
       --text-muted: #737373;
       --accent: #10b981;
-      --accent-muted: rgba(16,185,129,0.15);
       --border: rgba(255,255,255,0.04);
       --border-hover: rgba(255,255,255,0.08);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
     body {
+      margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: 'Geist', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.5;
+      line-height: 1.55;
       overflow-x: hidden;
     }
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { color: #34d399; }
-    code, .mono { font-family: 'JetBrains Mono', monospace; }
-    
-    /* Typography scale */
-    h1 { font-size: clamp(3rem, 8vw, 7rem); font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; }
-    h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-    p.lead { font-size: clamp(1rem, 1.5vw, 1.25rem); color: var(--text-muted); max-width: 68ch; line-height: 1.6; }
-    
-    /* Layout */
-    .container { max-width: 960px; margin: 0 auto; padding: 4rem 1.5rem; }
-    .section { margin-bottom: 12rem; }
-    .spacer { height: 24vh; } /* intentional empty space */
-    
-    /* Divider */
-    .divider { 
-      width: 120px; height: 1px; background: linear-gradient(90deg, var(--accent), transparent); 
-      margin: 4rem 0 6rem 0; opacity: 0.3; 
+    code, .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.03);
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
     }
     
-    /* Fade-in on scroll */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Typography */
+    h1 {
+      font-size: clamp(2.5rem, 9vw, 7rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: clamp(1.25rem, 2.5vw, 2rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 3rem;
+      color: var(--text-muted);
+    }
+    p.lead {
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 68ch;
+      line-height: 1.65;
+    }
     
-    /* Parameter list style */
-    .param-list { list-style: none; }
-    .param-list li { 
-      display: flex; justify-content: space-between; align-items: baseline; 
-      padding: 1.25rem 0; border-bottom: 1px solid var(--border); 
-      font-size: 1.1rem; transition: border-color 0.3s;
+    /* Layout containers */
+    .container { max-width: 900px; margin: 0 auto; padding: 12vh 1.5rem 6rem; }
+    .section { margin-bottom: 20vh; }
+    
+    /* Divider line */
+    .divider {
+      width: 100px; height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin: 8rem 0 10rem 0;
+      opacity: 0.2;
+    }
+    
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Parameter list */
+    .param-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+    .param-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+      transition: border-color 0.4s ease;
     }
     .param-list li:hover { border-color: var(--border-hover); }
-    .param-name { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.05em; }
-    .param-value { color: var(--accent); font-weight: 500; }
+    .param-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .param-value { color: var(--accent); }
     
-    /* Module / project style */
-    .module { margin-bottom: 10rem; position: relative; }
-    .module-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
-    .module-id { 
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); 
-      letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; 
+    /* Module (project) */
+    .module { margin-bottom: 18rem; position: relative; }
+    .module-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; }
+    .module-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+      display: block;
     }
-    .module-title { font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; }
-    .module-tag { 
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); 
-      text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap;
+    .module-title {
+      font-size: clamp(1.5rem, 4vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
-    .module-lead { font-size: 1.1rem; color: var(--text-muted); max-width: 68ch; margin-bottom: 1.5rem; }
-    .module-stack { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
-    .module-stack code { 
-      display: inline; padding: 0; background: none; border: none; font-size: inherit; color: var(--text); 
-      opacity: 0.8; margin-right: 0.5rem;
+    .module-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    .module-stack code::after { content: "•"; margin-left: 0.5rem; opacity: 0.3; }
-    .module-stack code:last-child::after { content: ""; }
+    .module-lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 68ch;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+    .module-stack {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.9;
+    }
+    .module-stack code {
+      margin-right: 0.75rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .module-stack code:hover { opacity: 1; color: var(--text); }
     
-    /* Demo iframe for me-builder */
-    .demo-frame {
-      width: 100%; max-width: 400px; height: 280px; border: 1px solid var(--border);
-      border-radius: 8px; background: #0a0a0a; margin-top: 2rem; opacity: 0.9;
+    .module-links {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
     }
+    .module-links a { position: relative; }
+    .module-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .module-links a:hover::after { width: 100%; }
     
     /* Pixel icon style */
-    .pixel-icon { width: 20px; height: 20px; image-rendering: pixelated; opacity: 0.5; }
-    
-    /* Log entry style */
-    .log-list { list-style: none; }
-    .log-list li {
-      padding: 0.75rem 0; border-bottom: 1px solid var(--border);
-      display: flex; gap: 1rem; align-items: baseline;
+    .pixel-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.4;
+      flex-shrink: 0;
     }
-    .log-date { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); min-width: 140px; }
-    .log-title { font-weight: 500; }
+    
+    /* Mini iframe demo */
+    .demo-wrapper {
+      margin-top: 2.5rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+    }
+    .demo-frame {
+      width: 100%; max-width: 380px;
+      height: 260px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #0a0a0a;
+      transform: scale(0.92);
+      transform-origin: top left;
+      opacity: 0.8;
+    }
+    
+    /* Log list */
+    .log-list { list-style: none; border-top: 1px solid var(--border); }
+    .log-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .log-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      min-width: 110px;
+      letter-spacing: 0.04em;
+    }
     
     /* Footer */
-    footer { padding: 6rem 1.5rem 3rem; border-top: 1px solid var(--border); margin-top: 12rem; }
-    .footer-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 2rem; flex-wrap: wrap; }
-    footer a { color: var(--text-muted); font-size: 0.9rem; }
-    footer a:hover { color: var(--accent); }
-    
-    /* Utility */
-    .accent { color: var(--accent); }
-    .muted { color: var(--text-muted); }
+    footer {
+      padding: 6rem 1.5rem 3rem;
+      border-top: 1px solid var(--border);
+      margin-top: 16rem;
+    }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-name { font-weight: 600; margin-bottom: 0.5rem; }
+    .footer-meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-muted); font-size: 0.9rem; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-note {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      opacity: 0.4;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     
-    <!-- HERO -->
+    <!-- Hero -->
     <header class="section reveal">
-      <p class="muted" style="font-family:'JetBrains Mono';font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1rem;">
+      <p class="mono" style="font-size:0.7rem;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1.25rem;">
         IBRAHIM KHALIL UTHMAN
       </p>
       <h1>Building AI systems<br>that think clearly</h1>
-      <p class="lead" style="margin-top: 2rem;">
-        Final-year Computer Science at Anglia Ruskin, Cambridge. I build tooling for alignment research, 
-        DeFi analytics, and security-hardened systems. Currently applying to the <strong>Anthropic Fellows program</strong> 
-        (AI Safety & Alignment).
+      <p class="lead">
+        Final-year Computer Science at Anglia Ruskin, Cambridge. I build tooling for alignment research,
+        DeFi analytics, and security-hardened systems. Currently applying to the
+        <strong style="color:var(--text);">Anthropic Fellows program</strong> (AI Safety & Alignment).
       </p>
-      <div style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="https://github.com/IbdotBoss" style="text-decoration:underline;text-underline-offset:4px;">GitHub</a>
-        <a href="https://www.linkedin.com/in/iku101/" style="text-decoration:underline;text-underline-offset:4px;">LinkedIn</a>
-        <a href="mailto:uthmanibrahimkhalil@gmail.com" style="text-decoration:underline;text-underline-offset:4px;">Email</a>
+      <div style="margin-top:3rem;font-size:0.95rem;">
+        <a href="https://github.com/IbdotBoss" style="margin-right:2rem;">GitHub</a>
+        <a href="https://www.linkedin.com/in/iku101/" style="margin-right:2rem;">LinkedIn</a>
+        <a href="mailto:uthmanibrahimkhalil@gmail.com">Email</a>
       </div>
     </header>
 
     <div class="divider reveal"></div>
 
-    <!-- RESEARCH INTERESTS (PARAMETER LIST) -->
+    <!-- Research parameters -->
     <section class="section reveal">
       <h2>Research parameters</h2>
       <ul class="param-list">
         <li>
-          <span class="muted">MECHANISTIC_INTERPRETABILITY</span>
-          <span class="accent">= true</span>
+          <span class="param-name">MECHANISTIC_INTERPRETABILITY</span>
+          <span class="param-value">= true</span>
         </li>
         <li>
-          <span class="muted">RED_TEAM_INFRASTRUCTURE</span>
-          <span class="accent">= true</span>
+          <span class="param-name">RED_TEAM_INFRASTRUCTURE</span>
+          <span class="param-value">= true</span>
         </li>
         <li>
-          <span class="muted">DEFI_AS_MODEL_PROBES</span>
-          <span class="accent">= true</span>
+          <span class="param-name">DEFI_AS_MODEL_PROBES</span>
+          <span class="param-value">= true</span>
         </li>
         <li>
-          <span class="muted">IDENTITY_ENCODING</span>
-          <span class="accent">= true</span>
+          <span class="param-name">IDENTITY_ENCODING</span>
+          <span class="param-value">= true</span>
         </li>
       </ul>
     </section>
 
-    <!-- PROJECTS (MODULES) -->
+    <!-- Projects -->
     <section class="section reveal">
       <h2>Modules deployed</h2>
-      <div class="spacer"></div>
-
+      
       <!-- nansta -->
       <article class="module">
         <span class="module-id">[ID: NST-01]</span>
         <div class="module-header">
           <h3 class="module-title">nansta</h3>
-          <span class="module-tag">Smart money intelligence</span>
+          <span class="module-tag">Smart money intel</span>
         </div>
         <p class="module-lead">
           Weekly analytics of DeFi capital flows across Ethereum, Solana, Base, Arbitrum via Nansen API.
-          Production Next.js + Vercel serverless with custom endpoint client.
+          Production Next.js 16 + Python serverless on Vercel cron.
         </p>
         <div class="module-stack">
           <code>Next.js 16</code>
@@ -185,57 +297,51 @@
           <code>Python</code>
           <code>Flask</code>
           <code>Nansen API</code>
-          <code>Vercel Cron</code>
+          <code>Vercel</code>
         </div>
-        <div style="margin-top:2rem;">
+        <div class="module-links">
           <a href="https://github.com/IbdotBoss/nansta">Source</a>
-          <span style="color:var(--text-muted);margin:0 0.75rem;">&middot;</span>
           <a href="https://nansta-next.vercel.app">Dashboard</a>
-          <span style="color:var(--text-muted);margin:0 0.75rem;">&middot;</span>
           <a href="https://nansta.vercel.app">API</a>
         </div>
       </article>
-
-      <div class="spacer" style="height:6rem;"></div>
 
       <!-- me-builder -->
       <article class="module">
         <span class="module-id">[ID: MB-01]</span>
         <div class="module-header">
           <h3 class="module-title">me-builder</h3>
-          <span class="module-tag">Portable AI identity</span>
+          <span class="module-tag">AI identity standard</span>
         </div>
         <p class="module-lead">
-          Interviews users and outputs portable <code class="mono">me.md</code> identity files. 
-          Asks: can we standardize human-to-AI context before prompting becomes programming?
+          Web tool that interviews users and outputs portable <code>me.md</code> files.
+          Asks: can we standardize human-to-AI context transfer before prompting becomes programming?
         </p>
         <div class="module-stack">
           <code>HTML</code>
-          <code>Vanilla JavaScript</code>
-          <code>Tailwind CSS</code>
-          <code>Geist font</code>
+          <code>JavaScript</code>
+          <code>Tailwind</code>
+          <code>Geist</code>
         </div>
-        <div style="margin-top:2rem;">
+        <div class="module-links">
           <a href="https://github.com/IbdotBoss/me-builder">Source</a>
-          <span style="color:var(--text-muted);margin:0 0.75rem;">&middot;</span>
-          <a href="https://ibdotboss.github.io/me-builder/">Live tool</a>
+          <a href="https://ibdotboss.github.io/me-builder/">Live</a>
         </div>
-        <!-- Mini demo: tiny iframe showing actual me-builder -->
-        <iframe src="https://ibdotboss.github.io/me-builder/" class="demo-frame" title="me-builder demo" style="transform:scale(0.45);transform-origin:top left;width:889px;height:622px;"></iframe>
+        <div class="demo-wrapper">
+          <iframe src="https://ibdotboss.github.io/me-builder/" class="demo-frame" title="me-builder demo" style="width:380px;height:520px;transform:scale(0.85);transform-origin:top left;"></iframe>
+        </div>
       </article>
-
-      <div class="spacer" style="height:6rem;"></div>
 
       <!-- faajaa-access-control -->
       <article class="module">
         <span class="module-id">[ID: FAC-01]</span>
         <div class="module-header">
           <h3 class="module-title">faajaa-access-control</h3>
-          <span class="module-tag">Embedded security system</span>
+          <span class="module-tag">Hardware security</span>
         </div>
         <p class="module-lead">
-          STM32-based secure entry with HMAC-SHA256 challenge-response. FreeRTOS firmware, 
-          Python WebSocket broker, CustomTkinter admin GUI. Hardware-rooted trust.
+          STM32 Nucleo-G474RE secure entry system with HMAC-SHA256 challenge-response.
+          FreeRTOS firmware, Python WebSocket broker, CustomTkinter admin GUI.
         </p>
         <div class="module-stack">
           <code>C</code>
@@ -245,14 +351,12 @@
           <code>WebSocket</code>
           <code>HMAC-SHA256</code>
         </div>
-        <div style="margin-top:2rem;">
+        <div class="module-links">
           <a href="https://github.com/IbdotBoss/faajaa-access-control">Source</a>
         </div>
       </article>
 
-      <div class="spacer" style="height:6rem;"></div>
-
-      <!-- Pressure Ulcer Prevention System (coursework) -->
+      <!-- Pressure Ulcer Prevention System -->
       <article class="module">
         <span class="module-id">[ID: PUS-01]</span>
         <div class="module-header">
@@ -260,8 +364,7 @@
           <span class="module-tag">MedTech coursework</span>
         </div>
         <p class="module-lead">
-          Real-time patient monitoring and clinical alerting for a MedTech startup. 
-          Team of 4; Git + Agile; delivered on schedule.
+          Real-time patient monitoring and clinical alerting system. Team of 4; Git + Agile; delivered on schedule.
         </p>
         <div class="module-stack">
           <code>C#</code>
@@ -272,59 +375,52 @@
 
     </section>
 
-    <!-- WRITING / LOG ENTRIES -->
+    <!-- Writing / logs -->
     <section class="section reveal">
       <h2>System logs</h2>
-      <div class="spacer"></div>
       <ul class="log-list">
         <li>
           <span class="log-date">2026-04-12</span>
-          <span class="log-title">Why me.md matters — portable context for agents</span>
+          <span class="log-title">Why portable context matters — the case for <code>me.md</code></span>
         </li>
         <li>
           <span class="log-date">2026-04-10</span>
-          <span class="log-title">Nansta data quirks: Nansen endpoint payloads</span>
+          <span class="log-title">Nansta data quirks: reverse-engineering Nanskey endpoint payloads</span>
         </li>
         <li>
           <span class="log-date">2026-04-05</span>
-          <span class="log-title">Design taste: anti-slop, intentionality, craft</span>
+          <span class="log-title">Design taste: anti-slop, intentionality, craft over convenience</span>
         </li>
       </ul>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
       <div class="footer-inner">
-        <div style="width:100%;max-width:960px;">
-          <p style="font-weight:600;margin-bottom:0.5rem;">Ibrahim Khalil Uthman</p>
-          <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:2rem;">
-            Final-year BEng Computer Science &middot; Anglia Ruskin University, Cambridge
-          </p>
-          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
-            <a href="https://github.com/IbdotBoss">GitHub</a>
-            <a href="https://www.linkedin.com/in/iku101/">LinkedIn</a>
-            <a href="mailto:uthmanibrahimkhalil@gmail.com">Email</a>
-            <a href="https://ibdotboss.github.io/me-builder/">me-builder</a>
-            <a href="https://nansta-next.vercel.app">nansta</a>
-          </div>
+        <p class="footer-name">Ibrahim Khalil Uthman</p>
+        <p class="footer-meta">Final-year BEng Computer Science &middot; Anglia Ruskin University, Cambridge</p>
+        <div class="footer-links">
+          <a href="https://github.com/IbdotBoss">GitHub</a>
+          <a href="https://www.linkedin.com/in/iku101/">LinkedIn</a>
+          <a href="mailto:uthmanibrahimkhalil@gmail.com">Email</a>
+          <a href="https://ibdotboss.github.io/me-builder/">me-builder</a>
+          <a href="https://nansta-next.vercel.app">nansta</a>
         </div>
       </div>
-      <p style="margin-top:4rem;font-size:0.75rem;color:var(--text-muted);opacity:0.5;">
-        Built with intention. No tracking, no cookies, no slop.
-      </p>
+      <p class="footer-note">Built with intention. No tracking, no cookies, no slop.</p>
     </footer>
 
   </div>
 
-  <!-- Minimal scroll reveal (no GSAP) -->
   <script>
+    // Minimal scroll reveal — 0.8s ease-out, no libraries
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
