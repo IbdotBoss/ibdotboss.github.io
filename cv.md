@@ -1,5 +1,5 @@
 ---
-title: Ibrahim Khalil Uthman — CV
+title: Ibrahim Khalil Uthman - CV
 status: draft
 tags: [cv, research, ai-safety]
 date: 2026-04-26
@@ -15,30 +15,30 @@ Phone: +44 7799 823187 &middot; LinkedIn: [iku101](https://linkedin.com/in/iku10
 
 ## Research interests
 
-- **Mechanistic interpretability** — how small language models implement capabilities in specific layers and attention heads
-- **Red-teaming infrastructure** — systematic boundary probing via structured input spaces; automated adversarial testing
-- **DeFi analytics as model behavior probes** — treating on-chain capital flows as distributed reasoning systems
-- **Identity encoding in LLMs** — portable context standards; the gap between prompting and programming agent personas
+- **Mechanistic interpretability** - how small language models implement features in specific layers and attention heads
+- **Red-teaming infrastructure** - systematic boundary probing via structured input spaces; automated adversarial testing
+- **DeFi analytics as model behavior probes** - treating on-chain capital flows as distributed reasoning systems
+- **Identity encoding in LLMs** - portable context standards; the gap between prompting and programming agent personas
 
 ---
 
 ## Selected projects
 
-### nansta — Smart money intelligence
+### nansta - Smart money intelligence
 
 [GitHub](https://github.com/IbdotBoss/nansta) &middot; [Live](https://nansta-next.vercel.app) &middot; [API](https://nansta.vercel.app)
 
 Production Next.js 16 + Python serverless platform that queries the Nansen API to track DeFi capital deployment 
 across Ethereum, Solana, Base, and Arbitrum. Weekly automated reports delivered via Discord.
 
-**Why it matters:** Built to understand how complex systems aggregate information. The codebase documents payload 
+**Why it matters:** built because I wanted to know how complex systems aggregate information. The codebase documents payload 
 quirks for every Nansen endpoint &mdash; real-world data engineering at scale.
 
 **Tech:** Next.js 16, React 19, Tailwind CSS 4, shadcn/ui, Python, Flask, Jinja2, Vercel cron, Nansen REST API.
 
 ---
 
-### me-builder — Portable AI identity builder
+### me-builder - Portable AI identity builder
 
 [GitHub](https://github.com/IbdotBoss/me-builder) &middot; [Live](https://ibdotboss.github.io/me-builder/)
 
@@ -46,7 +46,7 @@ Web tool that interviews users and outputs portable `me.md` identity files. Star
 what if every AI agent had a shareable context format?
 
 **Why it matters:** After reverse-engineering how different LLMs interpret persona instructions, 
-I discovered inconsistent tokenization of role-like formats. This project explores standards 
+I discovered inconsistent tokenization of role-like formats. This project asks whether we need standards 
 before prompting becomes programming.
 
 **Tech:** Single HTML file, Vanilla JavaScript, Tailwind CSS, Geist font (anti-slop design), 
@@ -54,7 +54,7 @@ no backend &mdash; entirely client-side.
 
 ---
 
-### faajaa-access-control — Embedded security system
+### faajaa-access-control - Embedded security system
 
 [GitHub](https://github.com/IbdotBoss/faajaa-access-control)
 
@@ -68,7 +68,7 @@ trust for physical access control.
 
 ---
 
-### Pressure Ulcer Prevention System — MedTech coursework
+### Pressure Ulcer Prevention System - MedTech coursework
 
 University group project: automated clinical alerting system for real-time patient monitoring. 
 Designed SQL database for user accounts, patient records, and treatment scheduling. Git + Agile; 

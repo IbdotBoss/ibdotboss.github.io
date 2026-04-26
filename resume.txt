@@ -1,0 +1,45 @@
+Ibrahim Khalil Uthman
+uthmanibrahimkhalil@gmail.com | github.com/IbdotBoss | linkedin.com/in/iku101
++44 7799 823187 | Cambridge, UK (GMT)
+
+EDUCATION
+BEng (Hons) Computer Science — Anglia Ruskin University, Cambridge
+Jan 2024 – Dec 2026 (Final Year)
+Relevant modules: Software Engineering, Computer Systems and Networking
+
+PROJECTS
+nansta — Smart money intelligence (Next.js 16, Python, Nansen API)
+  • Production analytics platform tracking DeFi capital flows across Ethereum, Solana, Base, Arbitrum
+  • Built custom Nansen API client; documents endpoint payload quirks and error modes
+  • Weekly automated reports on Vercel cron; delivery to Discord
+  • Live: nansta-next.vercel.app | GitHub: github.com/IbdotBoss/nansta
+
+me-builder — Portable AI identity builder (HTML, JavaScript, Tailwind)
+  • Web tool that interviews users and outputs portable me.md identity files
+  • Asks: can we standardize human-to-AI context transfer before prompting becomes programming?
+  • Reverse-engineered LLM persona interpretation — found inconsistent tokenization across providers
+  • Live: ibdotboss.github.io/me-builder | GitHub: github.com/IbdotBoss/me-builder
+
+faajaa-access-control — Secure entry system (C, FreeRTOS, Python, HMAC-SHA256)
+  • STM32 Nucleo-G474RE embedded system with challenge-response authentication
+  • FreeRTOS firmware + WebSocket Python broker + CustomTkinter admin GUI
+  • End-to-end security from hardware to application layer
+  • GitHub: github.com/IbdotBoss/faajaa-access-control
+
+Pressure Ulcer Prevention System — MedTech coursework (C#, HTML, SQL)
+  • Team project (4 developers) for MedTech startup: real-time clinical alerting
+  • Designed relational DB for patient records, user accounts, treatment scheduling
+  • Git + Agile workflow; delivered on schedule
+
+TECHNICAL SKILLS
+Languages: Python, Java, JavaScript/TypeScript, C, C#, SQL, HTML/CSS
+Frontend: Next.js 16, React 19, Tailwind CSS 4, shadcn/ui
+Backend/DevOps: Flask, Jinja2, Vercel serverless, GitHub Actions, cron
+Embedded: FreeRTOS, STM32 (C), CustomTkinter, WebSocket, HMAC-SHA256
+Tools: Git, ServiceNow (Certified System Administrator), Claude Code/Co-Work
+
+CERTIFICATIONS
+Certified System Administrator — ServiceNow (2024)
+Introduction to Cybersecurity — Codecademy (2024)
+Introduction to JavaScript — Codecademy (2024)
+Programming for Everybody (Python) — Coursera (2022)
