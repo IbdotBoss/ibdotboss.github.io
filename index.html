@@ -12,14 +12,13 @@
   
   <style>
     :root {
-      --bg: #0a0a0a;
-      --text: #f5f5f5;
-      --text-muted: #737373;
-      --link: #f5f5f5;
-      --link-hover: #ffffff;
-      --accent-glow: transparent;
+      --bg: #f5f5f5;
+      --text: #0a0a0a;
+      --text-muted: #525252;
+      --link: #0a0a0a;
+      --link-hover: #000000;
     }
-    * { box-sizing:  padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       margin: 0;
       background: var(--bg);
@@ -30,9 +29,15 @@
       overflow-x: hidden;
     }
     
-    /* Links — underline only, no color */
-    a { color: inherit; text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
     
     code, .mono {
       font-family: 'JetBrains Mono', monospace;
@@ -40,32 +45,29 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
       color: var(--text-muted);
       background: none;
       padding: 0;
-      
     }
     
-    /* Typography scale — extreme */
     h1 {
-      font-size: clamp(5rem, 12vw, 12rem);
+      font-size: clamp(3rem, 11vw, 10rem);
       font-weight: 800;
       letter-spacing: -0.06em;
       line-height: 0.92;
       margin-bottom: 2rem;
     }
     h2 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(1.5rem, 4vw, 3.5rem);
       font-weight: 700;
       letter-spacing: -0.04em;
       margin-bottom: 4rem;
       color: var(--text-muted);
     }
     p.lead {
-      font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+      font-size: clamp(1rem, 1.6vw, 1.4rem);
       color: var(--text-muted);
       max-width: 68ch;
       line-height: 1.6;
     }
     
-    /* Layout — pure space */
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -75,7 +77,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
       margin-bottom: 45vh;
     }
     
-    /* Reveal — slow, subtle */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -86,13 +87,11 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
       transform: translateY(0);
     }
     
-    /* Research parameters — wrapped, no list styling */
     .params {
       font-family: 'JetBrains Mono', monospace;
       font-size: 1.1rem;
       line-height: 2.2;
       color: var(--text);
-      word-break: break-word;
     }
     .params span {
       color: var(--text-muted);
@@ -104,7 +103,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
       font-weight: 500;
     }
     
-    /* Projects — naked typography */
     .project {
       margin-bottom: 50vh;
     }
@@ -140,7 +138,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
     .project-stack code {
       margin-right: 0.75rem;
       opacity: 0.6;
-      transition: opacity 0.2s;
     }
     .project-stack code:hover {
       opacity: 1;
@@ -165,23 +162,20 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
     }
     .project-links a:hover::after {
       width: 100%;
-      background: var(--link-hover);
+      background: var(--text);
     }
     
-    /* Mini demo iframe — stark */
     .demo {
       margin-top: 3rem;
-      
-      opacity: 0.15;
+      border: none;
+      opacity: 0.12;
       width: 100%;
       max-width: 360px;
       height: 240px;
     }
     
-    /* Log entries */
     .logs {
       list-style: none;
-      
     }
     .logs li {
       padding: 0.5rem 0;
@@ -199,14 +193,15 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
     }
     .log-title a {
       text-decoration: none;
-      
-      transition: 
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .log-title a:hover {
+      border-bottom-color: var(--text-muted);
     }
     
-    /* Footer — ultra spare */
     footer {
       padding: 12rem 1.5rem 6rem;
-      
     }
     .footer-inner {
       max-width: 900px;
@@ -243,12 +238,11 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
 
   <div class="container">
     
-    <!-- HERO -->
     <header class="section reveal">
-      <p style="font-family:'JetBrains Mono';font-size:0.65rem;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:1.5rem;">
+      <p class="mono" style="font-size:0.65rem;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:1.5rem;">
         IBRAHIM KHALIL UTHMAN
       </p>
-      <h1>Building AI systems<br/>that think clearly</h1>
+      <h1>Building AI systems<br/>&nbsp;that think clearly</h1>
       <p class="lead">
         Final-year Computer Science at Anglia Ruskin, Cambridge. I build tooling for alignment research,
         DeFi analytics, and security-hardened systems. Currently applying to the
@@ -261,7 +255,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
       </div>
     </header>
 
-    <!-- RESEARCH PARAMETERS -->
     <section class="section reveal">
       <h2>Research parameters</h2>
       <div class="params">
@@ -272,11 +265,9 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="section reveal">
       <h2>Modules deployed</h2>
       
-      <!-- nansta -->
       <article class="project">
         <div class="project-meta">[ID: NST-01] &mdash; Smart money intelligence</div>
         <h3 class="project-title">nansta</h3>
@@ -300,7 +291,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
         </div>
       </article>
 
-      <!-- me-builder -->
       <article class="project">
         <div class="project-meta">[ID: MB-01] &mdash; Portable AI identity</div>
         <h3 class="project-title">me-builder</h3>
@@ -318,11 +308,9 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
           <a href="https://github.com/IbdotBoss/me-builder">Source</a>
           <a href="https://ibdotboss.github.io/me-builder/">Live</a>
         </div>
-        <!-- Mini demo iframe — barely visible, ghostly -->
-        <iframe src="https://ibdotboss.github.io/me-builder/" class="demo" title="me-builder demo" style="opacity:0.07;"></iframe>
+        <iframe src="https://ibdotboss.github.io/me-builder/" class="demo" title="me-builder demo"></iframe>
       </article>
 
-      <!-- faajaa-access-control -->
       <article class="project">
         <div class="project-meta">[ID: FAC-01] &mdash; Hardware security</div>
         <h3 class="project-title">faajaa-access-control</h3>
@@ -343,7 +331,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
         </div>
       </article>
 
-      <!-- Pressure Ulcer Prevention System -->
       <article class="project">
         <div class="project-meta">[ID: PUS-01] &mdash; MedTech coursework</div>
         <h3 class="project-title">Pressure Ulcer Prevention System</h3>
@@ -359,7 +346,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
 
     </section>
 
-    <!-- LOGS -->
     <section class="section reveal">
       <h2>System logs</h2>
       <ul class="logs">
@@ -378,7 +364,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
       </ul>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-inner">
         <div class="footer-top">
@@ -397,7 +382,6 @@ a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoratio
   </div>
 
   <script>
-    // Minimal reveal — slow, simple
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
