@@ -19,7 +19,7 @@
       --link-hover: #ffffff;
       --accent-glow: transparent;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing:  padding: 0; }
     body {
       margin: 0;
       background: var(--bg);
@@ -31,17 +31,8 @@
     }
     
     /* Links — underline only, no color */
-    a {
-      color: var(--link);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 1px;
-      transition: all 0.2s ease;
-    }
-    a:hover {
-      color: var(--link-hover);
-      text-decoration-thickness: 2px;
-    }
+    a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
     
     code, .mono {
       font-family: 'JetBrains Mono', monospace;
@@ -49,26 +40,26 @@
       color: var(--text-muted);
       background: none;
       padding: 0;
-      border-radius: 0;
+      
     }
     
     /* Typography scale — extreme */
     h1 {
-      font-size: clamp(3rem, 11vw, 10rem);
+      font-size: clamp(5rem, 12vw, 12rem);
       font-weight: 800;
       letter-spacing: -0.06em;
       line-height: 0.92;
       margin-bottom: 2rem;
     }
     h2 {
-      font-size: clamp(1.5rem, 4vw, 3.5rem);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 700;
       letter-spacing: -0.04em;
       margin-bottom: 4rem;
       color: var(--text-muted);
     }
     p.lead {
-      font-size: clamp(1rem, 1.6vw, 1.4rem);
+      font-size: clamp(1.25rem, 1.8vw, 1.6rem);
       color: var(--text-muted);
       max-width: 68ch;
       line-height: 1.6;
@@ -81,7 +72,7 @@
       padding: 16vh 1.5rem 12rem;
     }
     .section {
-      margin-bottom: 30vh;
+      margin-bottom: 45vh;
     }
     
     /* Reveal — slow, subtle */
@@ -115,7 +106,7 @@
     
     /* Projects — naked typography */
     .project {
-      margin-bottom: 28rem;
+      margin-bottom: 50vh;
     }
     .project-meta {
       font-family: 'JetBrains Mono', monospace;
@@ -180,7 +171,7 @@
     /* Mini demo iframe — stark */
     .demo {
       margin-top: 3rem;
-      border: none;
+      
       opacity: 0.15;
       width: 100%;
       max-width: 360px;
@@ -190,7 +181,7 @@
     /* Log entries */
     .logs {
       list-style: none;
-      border-top: none;
+      
     }
     .logs li {
       padding: 0.5rem 0;
@@ -208,17 +199,14 @@
     }
     .log-title a {
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .log-title a:hover {
-      border-bottom-color: var(--text-muted);
+      
+      transition: 
     }
     
     /* Footer — ultra spare */
     footer {
       padding: 12rem 1.5rem 6rem;
-      border-top: none;
+      
     }
     .footer-inner {
       max-width: 900px;
