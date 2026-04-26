@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Ibrahim Khalil Uthman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'system-ui'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            accent: '#10b981',
+           surface: { 900: '#0a0a0a', 800: '#111', 700: '#1a1a1a' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #0a0a0a; color: #e5e5e5; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.1; }
+    .lead { max-width: 68ch; line-height: 1.6; color: #a3a3a3; }
+    .card { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.25rem; }
+    .card:hover { border-color: rgba(255,255,255,0.12); }
+    .btn { display: inline-flex; padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 500; transition: all 0.2s; }
+    .btn-primary { background: #10b981; color: #0a0a0a; }
+    .btn-primary:hover { background: #34d399; }
+    .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-right: 0.5rem; }
+    .divider { height: 1px; background: linear-gradient(90deg, #10b981 0%, transparent 100%); margin: 2rem 0; }
+    .section-spacer { margin-top: 2.5rem; }
+    a { color: #10b981; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .tech-pill { display: inline-block; padding: 0.2rem 0.6rem; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; margin: 0.2rem 0.2rem 0.2rem 0; }
+    .project-meta { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: #888; margin-top: 0.5rem; }
+  </style>
+</head>
+<body class="min-h-[100dvh] p-6 md:p-12">
+  <main class="max-w-3xl mx-auto">
+
+    <!-- HEADER -->
+    <header class="mb-10 pb-8" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <div class="flex items-start gap-6">
+        <div>
+          <h1 class="text-3xl font-bold mb-1">Ibrahim Khalil Uthman</h1>
+          <p class="text-accent font-medium mb-2">Computer Science student &mdash; AI safety, systems, security</p>
+          <p class="lead text-sm">
+            Final-year BEng candidate at Anglia Ruskin University, Cambridge. Building production AI tooling 
+            (me-builder, nansta), DeFi analytics pipelines, and embedded security systems.
+            Focus: alignment research, red-teaming infrastructure, and cross-domain data engineering.
+          </p>
+        </div>
+        <div class="hidden md:block ml-auto" style="text-align: right;">
+          <p><a href="mailto:uthmanibrahimkhalil@gmail.com">uthmanibrahimkhalil@gmail.com</a></p>
+          <p><a href="https://github.com/IbdotBoss">github.com/IbdotBoss</a></p>
+          <p><a href="https://www.linkedin.com/in/iku101/">linkedin.com/in/iku101</a></p>
+          <p>Cambridge, UK (GMT)</p>
+          <p>+44 7799 823187</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- EDUCATION -->
+    <section class="section-spacer">
+      <h2 class="text-lg font-semibold mb-4" style="display: flex; align-items: center; gap: 0.5rem;">
+        <span class="tag">education</span>
+        Education
+      </h2>
+      <div class="card mb-3">
+        <div class="flex justify-between items-baseline mb-1">
+          <span class="font-medium">BEng (Hons) Computer Science</span>
+          <span class="text-sm text-gray-500 font-mono">2024 &ndash; Dec 2026</span>
+        </div>
+        <p class="text-sm text-gray-400">Anglia Ruskin University, Cambridge</p>
+        <p class="text-xs text-gray-500 mt-1">Relevant: Software Engineering, Computer Systems and Networking</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS (research-oriented) -->
+    <section class="section-spacer">
+      <h2 class="text-lg font-semibold mb-4" style="display: flex; align-items: center; gap: 0.5rem;">
+        <span class="tag">projects</span>
+        Projects
+      </h2>
+
+      <!-- nansta -->
+      <div class="card mb-4">
+        <div class="flex items-start justify-between mb-2">
+          <div>
+            <h3 class="text-lg font-bold">nansta</h3>
+            <p class="text-sm text-accent">Smart money weekly intelligence report</p>
+          </div>
+          <span class="tag">Next.js 16 / Python / Nansen API</span>
+        </div>
+        <p class="lead text-sm mb-3">
+          Production-grade analytics platform that queries Nansen endpoints to track DeFi capital deployment 
+          across Ethereum, Solana, Base, and Arbitrum. Handles smart-money netflow, DeFi holdings, wallet PnL, 
+          and Hyperliquid perp activity — with a custom API client that documents payload quirks for every endpoint.
+        </p>
+        <p class="lead text-sm mb-3">
+          Runs automated weekly on Vercel cron, delivers formatted reports to Discord. Built to understand 
+          how on-chain behavior aggregates into macro capital signals — treating blockchain data as a window 
+          into distributed decision-making systems.
+        </p>
+        <div class="project-meta">
+          <a href="https://github.com/IbdotBoss/nansta">Source</a>
+          <span>&middot;</span>
+          <a href="https://nansta-next.vercel.app">Live dashboard</a>
+          <span>&middot;</span>
+          <a href="https://nansta.vercel.app">API endpoint</a>
+        </div>
+      </div>
+
+      <!-- me-builder -->
+      <div class="card mb-4">
+        <div class="flex items-start justify-between mb-2">
+          <div>
+            <h3 class="text-lg font-bold">me-builder</h3>
+            <p class="text-sm text-accent">Portable AI identity standard</p>
+          </div>
+          <span class="tag">HTML / JavaScript / Tailwind</span>
+        </div>
+        <p class="lead text-sm mb-3">
+          Web tool that interviews users and outputs portable <code class="font-mono text-accent">me.md</code> identity files. 
+          Created after reverse-engineering how LLMs interpret persona instructions — discovered inconsistent 
+          tokenization of role-based formats across providers.
+        </p>
+        <p class="lead text-sm mb-3">
+          Built to explore: can we standardize human-to-AI context transfer the way JSON standardized API payloads? 
+          Two-path architecture: guided form or agent-interview mode.
+        </p>
+        <div class="project-meta">
+          <a href="https://github.com/IbdotBoss/me-builder">Source</a>
+          <span>&middot;</span>
+          <a href="https://ibdotboss.github.io/me-builder/">Live tool</a>
+        </div>
+      </div>
+
+      <!-- faajaa-access-control -->
+      <div class="card mb-4">
+        <div class="flex items-start justify-between mb-2">
+          <div>
+            <h3 class="text-lg font-bold">faajaa-access-control</h3>
+            <p class="text-sm text-accent">Hardware-rooted authentication system</p>
+          </div>
+          <span class="tag">C / FreeRTOS / Python / HMAC-SHA256</span>
+        </div>
+        <p class="lead text-sm mb-3">
+          STM32 Nucleo-G474RE secure entry system with challenge-response HMAC verification. 
+          FreeRTOS firmware communicates via WebSocket with a Python broker and CustomTkinter admin GUI. 
+          Demonstrates end-to-end security thinking — from silicon to application layer.
+        </p>
+        <div class="project-meta">
+          <a href="https://github.com/IbdotBoss/faajaa-access-control">Source</a>
+        </div>
+      </div>
+
+      <!-- Pressure Ulcer Prevention System (coursework) -->
+      <div class="card">
+        <div class="flex items-start justify-between mb-2">
+          <div>
+            <h3 class="text-lg font-bold">Pressure Ulcer Prevention System</h3>
+            <p class="text-sm text-accent">MedTech coursework project</p>
+          </div>
+          <span class="tag">C# / HTML / SQL</span>
+        </div>
+        <p class="lead text-sm mb-3">
+          Team project for a MedTech startup: automated clinical alerting system for real-time patient monitoring. 
+          Designed relational database schema for user accounts, patient records, and treatment scheduling. 
+          Git + Agile workflows; delivered on schedule with 4 developers.
+        </p>
+        <p class="lead text-sm mb-3">
+          Demonstrated ability to translate clinical requirements into reliable software, with attention to 
+          data integrity and unit testing.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section-spacer">
+      <h2 class="text-lg font-semibold mb-4" style="display: flex; align-items: center; gap: 0.5rem;">
+        <span class="tag">skills</span>
+        Technical skills
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Java</span>
+        <span class="tech-pill">JavaScript / TypeScript</span>
+        <span class="tech-pill">C / C#</span>
+        <span class="tech-pill">SQL</span>
+        <span class="tech-pill">HTML / CSS</span>
+        <span class="tech-pill">Next.js 16</span>
+        <span class="tech-pill">React 19</span>
+        <span class="tech-pill">Tailwind CSS 4</span>
+        <span class="tech-pill">shadcn/ui</span>
+        <span class="tech-pill">Git / GitHub Actions</span>
+        <span class="tech-pill">Vercel (serverless)</span>
+        <span class="tech-pill">Flask / Jinja2</span>
+        <span class="tech-pill">FreeRTOS</span>
+        <span class="tech-pill">STM32 (C)</span>
+        <span class="tech-pill">CustomTkinter</span>
+        <span class="tech-pill">ServiceNow (CSA)</span>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section-spacer">
+      <h2 class="text-lg font-semibold mb-4" style="display: flex; align-items: center; gap: 0.5rem;">
+        <span class="tag">certifications</span>
+        Certifications
+      </h2>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li><span class="font-semibold">Certified System Administrator &mdash; ServiceNow</span> (2024)</li>
+        <li><span class="font-semibold">Introduction to Cybersecurity &mdash; Codecademy</span> (2024)</li>
+        <li><span class="font-semibold">Introduction to JavaScript &mdash; Codecademy</span> (2024)</li>
+        <li><span class="font-semibold">Programming for Everybody (Python) &mdash; Coursera</span> (2022)</li>
+      </ul>
+    </section>
+
+    <!-- REFERENCES AVAILABLE -->
+    <section class="section-spacer">
+      <h2 class="text-lg font-semibold mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+        <span class="tag">references</span>
+        References
+      </h2>
+      <p class="text-sm text-gray-400">
+        Available upon request. Can provide academic and technical references from university supervisors 
+        and project collaborators.
+      </p>
+    </section>
+
+  </main>
+</body>
+</html>
