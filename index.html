@@ -13,13 +13,13 @@
   <style>
     :root {
       --bg: #0a0a0a;
-      --text: #e5e5e5;
+      --text: #f5f5f5;
       --text-muted: #737373;
-      --accent: #10b981;
-      --border: rgba(255,255,255,0.04);
-      --border-hover: rgba(255,255,255,0.08);
+      --link: #f5f5f5;
+      --link-hover: #ffffff;
+      --accent-glow: transparent;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       margin: 0;
       background: var(--bg);
@@ -29,202 +29,225 @@
       line-height: 1.55;
       overflow-x: hidden;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: #34d399; }
+    
+    /* Links — underline only, no color */
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+    a:hover {
+      color: var(--link-hover);
+      text-decoration-thickness: 2px;
+    }
+    
     code, .mono {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.85em;
       color: var(--text-muted);
-      background: rgba(255,255,255,0.03);
-      padding: 0.1em 0.35em;
-      border-radius: 4px;
+      background: none;
+      padding: 0;
+      border-radius: 0;
     }
     
-    /* Typography */
+    /* Typography scale — extreme */
     h1 {
-      font-size: clamp(2.5rem, 9vw, 7rem);
+      font-size: clamp(3rem, 11vw, 10rem);
       font-weight: 800;
-      letter-spacing: -0.05em;
-      line-height: 0.95;
-      margin-bottom: 1.5rem;
+      letter-spacing: -0.06em;
+      line-height: 0.92;
+      margin-bottom: 2rem;
     }
     h2 {
-      font-size: clamp(1.25rem, 2.5vw, 2rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-bottom: 3rem;
+      font-size: clamp(1.5rem, 4vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 4rem;
       color: var(--text-muted);
     }
     p.lead {
-      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      font-size: clamp(1rem, 1.6vw, 1.4rem);
       color: var(--text-muted);
       max-width: 68ch;
-      line-height: 1.65;
+      line-height: 1.6;
     }
     
-    /* Layout containers */
-    .container { max-width: 900px; margin: 0 auto; padding: 12vh 1.5rem 6rem; }
-    .section { margin-bottom: 20vh; }
-    
-    /* Divider line */
-    .divider {
-      width: 100px; height: 1px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      margin: 8rem 0 10rem 0;
-      opacity: 0.2;
+    /* Layout — pure space */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16vh 1.5rem 12rem;
+    }
+    .section {
+      margin-bottom: 30vh;
     }
     
-    /* Reveal animation */
+    /* Reveal — slow, subtle */
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
+      transform: translateY(40px);
+      transition: opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
     
-    /* Parameter list */
-    .param-list {
-      list-style: none;
-      border-top: 1px solid var(--border);
-    }
-    .param-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 1.05rem;
-      transition: border-color 0.4s ease;
-    }
-    .param-list li:hover { border-color: var(--border-hover); }
-    .param-name {
+    /* Research parameters — wrapped, no list styling */
+    .params {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-    }
-    .param-value { color: var(--accent); }
-    
-    /* Module (project) */
-    .module { margin-bottom: 18rem; position: relative; }
-    .module-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; }
-    .module-id {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      margin-bottom: 0.4rem;
-      display: block;
-    }
-    .module-title {
-      font-size: clamp(1.5rem, 4vw, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-    .module-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .module-lead {
       font-size: 1.1rem;
+      line-height: 2.2;
+      color: var(--text);
+      word-break: break-word;
+    }
+    .params span {
+      color: var(--text-muted);
+      opacity: 0.5;
+      margin-right: 0.5rem;
+    }
+    .params .value {
+      color: var(--text);
+      font-weight: 500;
+    }
+    
+    /* Projects — naked typography */
+    .project {
+      margin-bottom: 28rem;
+    }
+    .project-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .project-title {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .project-lead {
+      font-size: 1.25rem;
       color: var(--text-muted);
       max-width: 68ch;
       line-height: 1.6;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
-    .module-stack {
-      color: var(--text-muted);
+    .project-stack {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
-      line-height: 1.9;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
     }
-    .module-stack code {
+    .project-stack code {
       margin-right: 0.75rem;
-      opacity: 0.7;
+      opacity: 0.6;
       transition: opacity 0.2s;
     }
-    .module-stack code:hover { opacity: 1; color: var(--text); }
-    
-    .module-links {
-      margin-top: 1.5rem;
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.9rem;
+    .project-stack code:hover {
+      opacity: 1;
+      color: var(--text);
     }
-    .module-links a { position: relative; }
-    .module-links a::after {
+    .project-links {
+      font-size: 1rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .project-links a {
+      position: relative;
+    }
+    .project-links a::after {
       content: '';
       position: absolute;
-      bottom: -2px; left: 0; width: 0; height: 1px;
-      background: var(--accent);
-      transition: width 0.3s ease;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--text-muted);
+      transition: width 0.3s ease, background 0.3s ease;
     }
-    .module-links a:hover::after { width: 100%; }
-    
-    /* Pixel icon style */
-    .pixel-icon {
-      width: 16px;
-      height: 16px;
-      opacity: 0.4;
-      flex-shrink: 0;
+    .project-links a:hover::after {
+      width: 100%;
+      background: var(--link-hover);
     }
     
-    /* Mini iframe demo */
-    .demo-wrapper {
-      margin-top: 2.5rem;
-      padding-left: 1rem;
-      border-left: 2px solid var(--border);
-    }
-    .demo-frame {
-      width: 100%; max-width: 380px;
-      height: 260px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: #0a0a0a;
-      transform: scale(0.92);
-      transform-origin: top left;
-      opacity: 0.8;
+    /* Mini demo iframe — stark */
+    .demo {
+      margin-top: 3rem;
+      border: none;
+      opacity: 0.15;
+      width: 100%;
+      max-width: 360px;
+      height: 240px;
     }
     
-    /* Log list */
-    .log-list { list-style: none; border-top: 1px solid var(--border); }
-    .log-list li {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
+    /* Log entries */
+    .logs {
+      list-style: none;
+      border-top: none;
+    }
+    .logs li {
+      padding: 0.5rem 0;
+      font-size: 1rem;
       display: flex;
       gap: 1.5rem;
-      font-size: 0.95rem;
+      align-items: baseline;
     }
     .log-date {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
       color: var(--text-muted);
-      min-width: 110px;
-      letter-spacing: 0.04em;
+      min-width: 100px;
+      letter-spacing: 0.08em;
+    }
+    .log-title a {
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .log-title a:hover {
+      border-bottom-color: var(--text-muted);
     }
     
-    /* Footer */
+    /* Footer — ultra spare */
     footer {
-      padding: 6rem 1.5rem 3rem;
-      border-top: 1px solid var(--border);
-      margin-top: 16rem;
+      padding: 12rem 1.5rem 6rem;
+      border-top: none;
     }
-    .footer-inner { max-width: 900px; margin: 0 auto; }
-    .footer-name { font-weight: 600; margin-bottom: 0.5rem; }
-    .footer-meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
-    .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-muted); font-size: 0.9rem; }
-    .footer-links a:hover { color: var(--accent); }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .footer-top {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .footer-links a:hover {
+      color: var(--text);
+    }
     .footer-note {
-      margin-top: 3rem;
+      margin-top: 4rem;
       font-size: 0.75rem;
       color: var(--text-muted);
-      opacity: 0.4;
+      opacity: 0.3;
     }
   </style>
 </head>
@@ -232,9 +255,9 @@
 
   <div class="container">
     
-    <!-- Hero -->
+    <!-- HERO -->
     <header class="section reveal">
-      <p class="mono" style="font-size:0.7rem;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1.25rem;">
+      <p style="font-family:'JetBrains Mono';font-size:0.65rem;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:1.5rem;">
         IBRAHIM KHALIL UTHMAN
       </p>
       <h1>Building AI systems<br>that think clearly</h1>
@@ -243,54 +266,37 @@
         DeFi analytics, and security-hardened systems. Currently applying to the
         <strong style="color:var(--text);">Anthropic Fellows program</strong> (AI Safety & Alignment).
       </p>
-      <div style="margin-top:3rem;font-size:0.95rem;">
-        <a href="https://github.com/IbdotBoss" style="margin-right:2rem;">GitHub</a>
-        <a href="https://www.linkedin.com/in/iku101/" style="margin-right:2rem;">LinkedIn</a>
+      <div style="margin-top:3.5rem;font-size:1rem;">
+        <a href="https://github.com/IbdotBoss" style="margin-right:3rem;">GitHub</a>
+        <a href="https://www.linkedin.com/in/iku101/" style="margin-right:3rem;">LinkedIn</a>
         <a href="mailto:uthmanibrahimkhalil@gmail.com">Email</a>
       </div>
     </header>
 
-    <div class="divider reveal"></div>
-
-    <!-- Research parameters -->
+    <!-- RESEARCH PARAMETERS -->
     <section class="section reveal">
       <h2>Research parameters</h2>
-      <ul class="param-list">
-        <li>
-          <span class="param-name">MECHANISTIC_INTERPRETABILITY</span>
-          <span class="param-value">= true</span>
-        </li>
-        <li>
-          <span class="param-name">RED_TEAM_INFRASTRUCTURE</span>
-          <span class="param-value">= true</span>
-        </li>
-        <li>
-          <span class="param-name">DEFI_AS_MODEL_PROBES</span>
-          <span class="param-value">= true</span>
-        </li>
-        <li>
-          <span class="param-name">IDENTITY_ENCODING</span>
-          <span class="param-value">= true</span>
-        </li>
-      </ul>
+      <div class="params">
+        <div><span>MECHANISTIC_INTERPRETABILITY</span><span class="value">= true</span></div>
+        <div><span>RED_TEAM_INFRASTRUCTURE</span><span class="value">= true</span></div>
+        <div><span>DEFI_AS_MODEL_PROBES</span><span class="value">= true</span></div>
+        <div><span>IDENTITY_ENCODING</span><span class="value">= true</span></div>
+      </div>
     </section>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section class="section reveal">
       <h2>Modules deployed</h2>
       
       <!-- nansta -->
-      <article class="module">
-        <span class="module-id">[ID: NST-01]</span>
-        <div class="module-header">
-          <h3 class="module-title">nansta</h3>
-          <span class="module-tag">Smart money intel</span>
-        </div>
-        <p class="module-lead">
+      <article class="project">
+        <div class="project-meta">[ID: NST-01] &mdash; Smart money intelligence</div>
+        <h3 class="project-title">nansta</h3>
+        <p class="project-lead">
           Weekly analytics of DeFi capital flows across Ethereum, Solana, Base, Arbitrum via Nansen API.
           Production Next.js 16 + Python serverless on Vercel cron.
         </p>
-        <div class="module-stack">
+        <div class="project-stack">
           <code>Next.js 16</code>
           <code>React 19</code>
           <code>Tailwind CSS 4</code>
@@ -299,7 +305,7 @@
           <code>Nansen API</code>
           <code>Vercel</code>
         </div>
-        <div class="module-links">
+        <div class="project-links">
           <a href="https://github.com/IbdotBoss/nansta">Source</a>
           <a href="https://nansta-next.vercel.app">Dashboard</a>
           <a href="https://nansta.vercel.app">API</a>
@@ -307,43 +313,36 @@
       </article>
 
       <!-- me-builder -->
-      <article class="module">
-        <span class="module-id">[ID: MB-01]</span>
-        <div class="module-header">
-          <h3 class="module-title">me-builder</h3>
-          <span class="module-tag">AI identity standard</span>
-        </div>
-        <p class="module-lead">
-          Web tool that interviews users and outputs portable <code>me.md</code> files.
+      <article class="project">
+        <div class="project-meta">[ID: MB-01] &mdash; Portable AI identity</div>
+        <h3 class="project-title">me-builder</h3>
+        <p class="project-lead">
+          Web tool that interviews users and outputs portable <code>me.md</code> identity files.
           Asks: can we standardize human-to-AI context transfer before prompting becomes programming?
         </p>
-        <div class="module-stack">
+        <div class="project-stack">
           <code>HTML</code>
           <code>JavaScript</code>
           <code>Tailwind</code>
           <code>Geist</code>
         </div>
-        <div class="module-links">
+        <div class="project-links">
           <a href="https://github.com/IbdotBoss/me-builder">Source</a>
           <a href="https://ibdotboss.github.io/me-builder/">Live</a>
         </div>
-        <div class="demo-wrapper">
-          <iframe src="https://ibdotboss.github.io/me-builder/" class="demo-frame" title="me-builder demo" style="width:380px;height:520px;transform:scale(0.85);transform-origin:top left;"></iframe>
-        </div>
+        <!-- Mini demo iframe — barely visible, ghostly -->
+        <iframe src="https://ibdotboss.github.io/me-builder/" class="demo" title="me-builder demo" style="opacity:0.07;"></iframe>
       </article>
 
       <!-- faajaa-access-control -->
-      <article class="module">
-        <span class="module-id">[ID: FAC-01]</span>
-        <div class="module-header">
-          <h3 class="module-title">faajaa-access-control</h3>
-          <span class="module-tag">Hardware security</span>
-        </div>
-        <p class="module-lead">
+      <article class="project">
+        <div class="project-meta">[ID: FAC-01] &mdash; Hardware security</div>
+        <h3 class="project-title">faajaa-access-control</h3>
+        <p class="project-lead">
           STM32 Nucleo-G474RE secure entry system with HMAC-SHA256 challenge-response.
           FreeRTOS firmware, Python WebSocket broker, CustomTkinter admin GUI.
         </p>
-        <div class="module-stack">
+        <div class="project-stack">
           <code>C</code>
           <code>FreeRTOS</code>
           <code>Python</code>
@@ -351,22 +350,19 @@
           <code>WebSocket</code>
           <code>HMAC-SHA256</code>
         </div>
-        <div class="module-links">
+        <div class="project-links">
           <a href="https://github.com/IbdotBoss/faajaa-access-control">Source</a>
         </div>
       </article>
 
       <!-- Pressure Ulcer Prevention System -->
-      <article class="module">
-        <span class="module-id">[ID: PUS-01]</span>
-        <div class="module-header">
-          <h3 class="module-title">Pressure Ulcer Prevention System</h3>
-          <span class="module-tag">MedTech coursework</span>
-        </div>
-        <p class="module-lead">
+      <article class="project">
+        <div class="project-meta">[ID: PUS-01] &mdash; MedTech coursework</div>
+        <h3 class="project-title">Pressure Ulcer Prevention System</h3>
+        <p class="project-lead">
           Real-time patient monitoring and clinical alerting system. Team of 4; Git + Agile; delivered on schedule.
         </p>
-        <div class="module-stack">
+        <div class="project-stack">
           <code>C#</code>
           <code>HTML</code>
           <code>SQL</code>
@@ -375,52 +371,52 @@
 
     </section>
 
-    <!-- Writing / logs -->
+    <!-- LOGS -->
     <section class="section reveal">
       <h2>System logs</h2>
-      <ul class="log-list">
+      <ul class="logs">
         <li>
           <span class="log-date">2026-04-12</span>
-          <span class="log-title">Why portable context matters — the case for <code>me.md</code></span>
+          <span class="log-title"><a href="#">Why portable context matters &mdash; the case for me.md</a></span>
         </li>
         <li>
           <span class="log-date">2026-04-10</span>
-          <span class="log-title">Nansta data quirks: reverse-engineering Nanskey endpoint payloads</span>
+          <span class="log-title"><a href="#">Nansta data quirks: reverse-engineering Nansen endpoint payloads</a></span>
         </li>
         <li>
           <span class="log-date">2026-04-05</span>
-          <span class="log-title">Design taste: anti-slop, intentionality, craft over convenience</span>
+          <span class="log-title"><a href="#">Design taste: anti-slop, intentionality, craft over convenience</a></span>
         </li>
       </ul>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
       <div class="footer-inner">
-        <p class="footer-name">Ibrahim Khalil Uthman</p>
-        <p class="footer-meta">Final-year BEng Computer Science &middot; Anglia Ruskin University, Cambridge</p>
+        <div class="footer-top">
+          <p style="font-weight:600;margin-bottom:0.25rem;">Ibrahim Khalil Uthman</p>
+          <p>Final-year BEng Computer Science &middot; Anglia Ruskin University, Cambridge</p>
+        </div>
         <div class="footer-links">
           <a href="https://github.com/IbdotBoss">GitHub</a>
           <a href="https://www.linkedin.com/in/iku101/">LinkedIn</a>
           <a href="mailto:uthmanibrahimkhalil@gmail.com">Email</a>
-          <a href="https://ibdotboss.github.io/me-builder/">me-builder</a>
-          <a href="https://nansta-next.vercel.app">nansta</a>
         </div>
+        <p class="footer-note">Built with intention. No tracking, no cookies, no slop.</p>
       </div>
-      <p class="footer-note">Built with intention. No tracking, no cookies, no slop.</p>
     </footer>
 
   </div>
 
   <script>
-    // Minimal scroll reveal — 0.8s ease-out, no libraries
+    // Minimal reveal — slow, simple
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
